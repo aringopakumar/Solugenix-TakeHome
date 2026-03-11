@@ -1,0 +1,61 @@
+Acme Corp - Frequently Asked Questions
+
+---
+
+Q: What is Acme Corp?
+A: Acme Corp is a technology company founded in 2015 that specializes in cloud-based enterprise solutions. We help businesses streamline their operations through innovative software products.
+
+---
+
+Q: Where is Acme Corp headquartered?
+A: Our headquarters is located in San Francisco, California. We also have offices in Austin, Texas and New York City.
+
+---
+
+Q: What products does Acme Corp offer?
+A: We offer three main products:
+1. AcmeFlow - A workflow automation platform that helps teams automate repetitive tasks.
+2. AcmeData - A data analytics dashboard that provides real-time business insights.
+3. AcmeConnect - A team collaboration tool with built-in video conferencing and project management.
+
+---
+
+Q: How does AcmeFlow pricing work?
+A: AcmeFlow has three pricing tiers:
+- Starter: $29/month per user - includes basic workflow automation and up to 100 automated tasks per month.
+- Professional: $79/month per user - includes advanced automation, integrations with 50+ tools, and unlimited tasks.
+- Enterprise: Custom pricing - includes dedicated support, custom integrations, and on-premise deployment options.
+
+---
+
+Q: What is the refund policy?
+A: We offer a 30-day money-back guarantee on all plans. If you are not satisfied with our product within the first 30 days, you can request a full refund by contacting support@acmecorp.com. After 30 days, refunds are prorated based on remaining subscription time.
+
+---
+
+Q: How do I contact customer support?
+A: You can reach our support team through the following channels:
+- Email: support@acmecorp.com (response within 24 hours)
+- Live Chat: Available on our website Monday-Friday, 9am-6pm PST
+- Phone: 1-800-ACME-HELP (available for Professional and Enterprise plans)
+- Help Center: docs.acmecorp.com has self-service articles and video tutorials.
+
+---
+
+Q: Does Acme Corp offer a free trial?
+A: Yes! We offer a 14-day free trial for both AcmeFlow and AcmeData. No credit card is required to start the trial. AcmeConnect offers a free tier with limited features for teams of up to 5 people.
+
+---
+
+Q: What integrations does AcmeFlow support?
+A: AcmeFlow integrates with over 50 popular tools including Slack, Microsoft Teams, Salesforce, HubSpot, Jira, Google Workspace, Dropbox, and Zapier. Our Professional and Enterprise plans support custom API integrations.
+
+---
+
+Q: What is Acme Corp's data security policy?
+A: Security is our top priority. All data is encrypted at rest using AES-256 encryption and in transit using TLS 1.3. We are SOC 2 Type II certified, GDPR compliant, and undergo annual third-party security audits. Enterprise customers can opt for data residency in specific geographic regions.
+
+---
+
+Q: Does Acme Corp provide onboarding support?
+A: Yes. All new customers receive a free onboarding session with our customer success team. Professional plan customers get a dedicated onboarding specialist for the first 60 days. Enterprise customers receive a full implementation package including data migration support, custom training sessions, and a dedicated account manager.
