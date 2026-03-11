@@ -14,7 +14,7 @@ Architecture:
   Prompt Template  ──► combines question + retrieved context
        │
        ▼
-  LLM (GPT-3.5-turbo / GPT-4)  ──► generates a grounded answer
+  LLM (Llama via Ollama)  ──► generates a grounded answer
 
 The chain also returns source documents so the UI can display
 which parts of the knowledge base were used.
@@ -64,7 +64,7 @@ def build_qa_chain(
     vectorstore : FAISS
         The vector store to retrieve from.
     model_name : str
-        OpenAI chat model to use (e.g. "gpt-3.5-turbo", "gpt-4").
+        Ollama model to use (e.g. "llama3.2", "mistral").
     temperature : float
         LLM temperature. 0.0 = deterministic, factual answers.
     k : int

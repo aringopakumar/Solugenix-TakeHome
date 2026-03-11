@@ -2,8 +2,8 @@
 Vector Store Module
 ===================
 Handles two operations:
-  1. **Build** – take chunked Documents, embed them with OpenAI
-     Embeddings, and persist a FAISS index to disk.
+  1. **Build** – take chunked Documents, embed them with Ollama
+     (nomic-embed-text model), and persist a FAISS index to disk.
   2. **Load** – read a previously-saved FAISS index from disk so
      the app can start up without re-embedding every time.
 
@@ -11,6 +11,10 @@ Why FAISS?
   - Runs locally (no external server needed).
   - Fast similarity search, even on a laptop.
   - Easy to persist and reload from a directory.
+
+Why Ollama Embeddings?
+  - Fully local — no API key or external calls required.
+  - Uses the nomic-embed-text model for high-quality embeddings.
 """
 
 import os
