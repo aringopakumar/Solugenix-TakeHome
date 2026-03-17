@@ -1,6 +1,4 @@
-"""
-Streamlit Web UI — Internal Knowledge Assistant
-"""
+"""Streamlit UI for the FAQ chatbot."""
 
 import os
 import tempfile
@@ -12,14 +10,12 @@ from src.chunker import chunk_documents
 from src.vectorstore import build_vectorstore, load_vectorstore
 from src.qa_chain import build_qa_chain
 
-# ── Page config ───────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="Knowledge Assistant",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
-# ── CSS ───────────────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
     #MainMenu, footer, header { visibility: hidden; }
@@ -140,7 +136,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ── Avatars (inline SVG — no emoji, no external URL) ─────────────────────────
 USER_AVATAR = (
     "data:image/svg+xml,"
     "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'>"
@@ -158,9 +153,7 @@ AI_AVATAR = (
     "</svg>"
 )
 
-# ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
-    # Header + status
     indexed_files = st.session_state.get("indexed_files", [])
     status_html = (
         "<span class='status-ready'>Ready</span>"
@@ -174,7 +167,6 @@ with st.sidebar:
         unsafe_allow_html=True,
     )
 
-    # Show indexed file list
     if indexed_files:
         for fname in indexed_files:
             st.markdown(
@@ -185,7 +177,6 @@ with st.sidebar:
 
     st.divider()
 
-    # File uploader
     uploaded_files = st.file_uploader(
         "Upload documents",
         type=["txt", "pdf"],
@@ -216,7 +207,6 @@ with st.sidebar:
             except Exception as e:
                 st.error(str(e))
 
-    # Clear button (only show when index exists)
     if indexed_files:
         st.markdown("<div style='height:4px'></div>", unsafe_allow_html=True)
         if st.button("Clear knowledge base"):
@@ -230,7 +220,6 @@ with st.sidebar:
     st.markdown("<div style='height:12px'></div>", unsafe_allow_html=True)
     st.caption("Upload HR policies, guides, or any company docs.")
 
-# ── Load vector store + QA chain (only if user indexed this session) ──────────
 is_ready = bool(st.session_state.get("indexed_files"))
 
 if is_ready:
@@ -244,11 +233,9 @@ if is_ready:
 
 qa_chain = st.session_state.get("qa_chain") if is_ready else None
 
-# ── Main header ───────────────────────────────────────────────────────────────
 st.title("Knowledge Assistant")
-st.caption("Ask questions — answers are grounded in your uploaded documents.")
+st.caption("Answers are based on your uploaded documents.")
 
-# ── Helper: render source references ─────────────────────────────────────────
 def render_sources(source_docs):
     if not source_docs:
         return
@@ -268,11 +255,9 @@ def render_sources(source_docs):
                 unsafe_allow_html=True,
             )
 
-# ── Chat history ──────────────────────────────────────────────────────────────
 if "messages" not in st.session_state:
     st.session_state["messages"] = []
 
-# ── No documents indexed yet — onboarding state, no chat ─────────────────────
 if not is_ready or not qa_chain:
     st.markdown(
         "<div style='text-align:center;margin-top:5rem;opacity:0.35;font-size:0.9rem;line-height:1.8'>"
@@ -282,7 +267,6 @@ if not is_ready or not qa_chain:
     )
     st.stop()
 
-
 for msg in st.session_state["messages"]:
     avatar = USER_AVATAR if msg["role"] == "user" else AI_AVATAR
     with st.chat_message(msg["role"], avatar=avatar):
@@ -290,7 +274,6 @@ for msg in st.session_state["messages"]:
         if msg["role"] == "assistant" and msg.get("sources"):
             render_sources(msg["sources"])
 
-# ── Chat input ────────────────────────────────────────────────────────────────
 def handle_query(user_input):
     st.session_state["messages"].append({"role": "user", "content": user_input})
     with st.chat_message("user", avatar=USER_AVATAR):
@@ -316,7 +299,6 @@ if qa_chain:
     if user_input := st.chat_input("Ask a question about your documents..."):
         handle_query(user_input)
 
-# ── Auto-scroll to bottom after each render ───────────────────────────────────
 components.html("""
 <script>
     const main = window.parent.document.querySelector('section[data-testid="stMain"]');

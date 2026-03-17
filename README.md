@@ -1,8 +1,6 @@
 # FAQ Chatbot
 
-A local RAG (Retrieval-Augmented Generation) pipeline that ingests company documents and answers questions grounded in those documents.
-
-Built with **LangChain**, **Ollama (Llama 3.2)**, **FAISS**, and **Streamlit**. Runs entirely on your machine — no API keys required.
+A local RAG pipeline that lets you upload company documents and ask questions about them. Answers come directly from the uploaded content. Built with **LangChain**, **Ollama (Llama 3.2)**, **FAISS**, and **Streamlit**. Everything runs locally — no API keys needed.
 
 ---
 
@@ -37,7 +35,7 @@ Built with **LangChain**, **Ollama (Llama 3.2)**, **FAISS**, and **Streamlit**. 
 │  Prompt Template ──► "Answer using ONLY this context"       │
 │       │                                                     │
 │       ▼                                                     │
-│  LLM (Llama 3.2 via Ollama) ──► Grounded answer + sources  │
+│  LLM (Llama 3.2 via Ollama) ──► Answer + sources            │
 │       │                                                     │
 │       ▼                                                     │
 │  Streamlit UI ──► Display answer + source documents         │
@@ -66,7 +64,7 @@ Built with **LangChain**, **Ollama (Llama 3.2)**, **FAISS**, and **Streamlit**. 
 | `loader.py` | Reads `.txt` and `.pdf` files and returns LangChain `Document` objects. |
 | `chunker.py` | Splits documents into smaller chunks with configurable size and overlap. |
 | `vectorstore.py` | Embeds chunks via Ollama (`nomic-embed-text`) and stores them in a FAISS index. |
-| `qa_chain.py` | Retrieves relevant chunks and passes them to Llama 3.2 with a grounded prompt. |
+| `qa_chain.py` | Retrieves relevant chunks and passes them to Llama 3.2 to generate an answer. |
 | `app.py` | Streamlit chat UI with document upload, index building, and source display. |
 
 ---
