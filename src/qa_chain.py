@@ -44,4 +44,4 @@ def build_qa_chain(
         chain_type_kwargs={"prompt": PROMPT},
     )
 
-    return qa_chain #configures and returns the chain object
+    return qa_chain #configures, runs, and returns the chain object
