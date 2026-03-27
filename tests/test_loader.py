@@ -13,7 +13,7 @@ def test_load_documents_success():
 
         assert len(docs) == 1
         assert docs[0].page_content == "Hello world." 
-        assert "test.txt" in docs[0].metadata["source"]
+        assert "test.txt" in docs[0].metadata["source"] #filename is located in dir
 
 def test_load_documents_empty_dir():
     with tempfile.TemporaryDirectory() as empty_dir: #creates empty dir
