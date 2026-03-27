@@ -32,8 +32,8 @@ def build_qa_chain(
     """Create a chain that retrieves top-k chunks and sends them to the LLM."""
     llm = ChatOllama(model=model_name, temperature=temperature)
     retriever = vectorstore.as_retriever(
-        search_type="mmr",
-        search_kwargs={"k": k, "fetch_k": k * 4},
+        search_type="mmr", #maximal marginal relevance: picks chunks relevant and different from each other
+        search_kwargs={"k": k, "fetch_k": k * 4}, #24 similarity > 6 diversity
     )
 
     qa_chain = RetrievalQA.from_chain_type(
