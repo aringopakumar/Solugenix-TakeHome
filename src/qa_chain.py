@@ -27,7 +27,7 @@ def build_qa_chain(
     vectorstore: FAISS,
     model_name: str = "llama3.2",
     temperature: float = 0.0, #fully deterministic, not stochastic
-    k: int = 6,
+    k: int = 6, #number of chunks to retrieve
 ) -> RetrievalQA:
     """Create a chain that retrieves top-k chunks and sends them to the LLM."""
     llm = ChatOllama(model=model_name, temperature=temperature)
