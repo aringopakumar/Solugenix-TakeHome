@@ -26,7 +26,7 @@ PROMPT = PromptTemplate(
 def build_qa_chain(
     vectorstore: FAISS,
     model_name: str = "llama3.2",
-    temperature: float = 0.0,
+    temperature: float = 0.0, #fully deterministic, not stochastic
     k: int = 6,
 ) -> RetrievalQA:
     """Create a chain that retrieves top-k chunks and sends them to the LLM."""
