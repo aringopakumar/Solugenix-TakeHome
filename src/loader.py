@@ -12,7 +12,7 @@ def load_documents(data_dir: str = "data") -> List[Document]:
     documents: List[Document] = []
 
     for filename in sorted(os.listdir(data_dir)):
-        filepath = os.path.join(data_dir, filename)
+        filepath = os.path.join(data_dir, filename) #builds full path to file
 
         if filename.endswith(".txt"):
             loader = TextLoader(filepath, encoding="utf-8")
