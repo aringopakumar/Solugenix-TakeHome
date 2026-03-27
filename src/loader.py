@@ -25,4 +25,4 @@ def load_documents(data_dir: str = "data") -> List[Document]:
         raise FileNotFoundError(f"No .txt or .pdf files found in '{data_dir}'.")
 
     print(f"Loaded {len(documents)} document(s) from {data_dir}")
-    return documents
+    return documents #age_content — the actual text, as a plain string and metadata — a dictionary with info like the filename and page number
