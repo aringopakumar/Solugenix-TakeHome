@@ -38,7 +38,7 @@ def build_qa_chain(
 
     qa_chain = RetrievalQA.from_chain_type(
         llm=llm,
-        chain_type="stuff",
+        chain_type="stuff", #6 final chosen chunks
         retriever=retriever,
         return_source_documents=True,
         chain_type_kwargs={"prompt": PROMPT},
