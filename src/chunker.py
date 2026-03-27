@@ -5,6 +5,8 @@ from typing import List
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
+#RAG overlap common practice is 10-20%; 20% of 300 = 60
+#300 was arbitrarily picked
 
 def chunk_documents(
     documents: List[Document],
