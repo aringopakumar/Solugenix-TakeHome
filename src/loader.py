@@ -16,7 +16,7 @@ def load_documents(data_dir: str = "data") -> List[Document]:
 
         if filename.endswith(".txt"):
             loader = TextLoader(filepath, encoding="utf-8")
-            documents.extend(loader.load())
+            documents.extend(loader.load()) #able to add multiple items, unlike append
         elif filename.endswith(".pdf"):
             loader = PyPDFLoader(filepath)
             documents.extend(loader.load())
