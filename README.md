@@ -95,7 +95,9 @@ ollama serve
 
 ### 4. Run the App
 
-'''streamlit run app.py
+```bash
+streamlit run app.py
+```
 
 ---
 
