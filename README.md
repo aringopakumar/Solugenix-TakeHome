@@ -93,6 +93,10 @@ ollama pull nomic-embed-text    # Embedding model
 ollama serve
 ```
 
+### 4. Run the App
+'''
+streamlit run app.py
+'''
 ---
 
 ## Setup
