@@ -9,7 +9,7 @@ from langchain_community.vectorstores import FAISS
 
 DEFAULT_PERSIST_DIR = "faiss_index"
 
-
+#Builds a searchable FAISS index and saves to disk, while running each chunk and saving the vector embedding
 def build_vectorstore(
     chunks: List[Document],
     persist_dir: str = DEFAULT_PERSIST_DIR,
@@ -21,7 +21,7 @@ def build_vectorstore(
     print(f"Vector store saved to {persist_dir}")
     return vectorstore
 
-
+#Loads built in index back from disk into memory
 def load_vectorstore(persist_dir: str = DEFAULT_PERSIST_DIR) -> FAISS:
     """Load a FAISS index from disk. Raises FileNotFoundError if missing."""
     if not os.path.exists(persist_dir):
