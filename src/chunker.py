@@ -20,4 +20,4 @@ def chunk_documents(
 
     chunks = splitter.split_documents(documents)
     print(f"Split into {len(chunks)} chunks (size={chunk_size}, overlap={chunk_overlap})")
-    return chunks
+    return chunks #same list of documents (objects), just that each chunk is shorter, metdata preserved
